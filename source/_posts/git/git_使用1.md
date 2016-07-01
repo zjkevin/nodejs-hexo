@@ -1,19 +1,57 @@
 ---
-title: git简介
-date: 2016-06-30 14:27:17
-permalink: git1
+title: git使用(1)
+date: 2016-07-01 08:49:17
+permalink: git_2
 tags:
 - git
 - 开发工具
-categories: 日志
+categories: 开发工具
 ---
 
+我们通过程序员惯用的思维方式展开，从问题出发，看用git该如何操作
 
-### 简介
 
-linus一直不认同svn这种集中式的版本管理系统，而git是分布式的。分布式的版本管理系统没有“中央服务器”，当互联网环境下，网速不是很快的时候，有它的优势。即便是断网情况下，你也可以继续工作，因为你本身就是一个完整的版本库，git中的“中央服务器”其实只是方便大家交换修改，每个人的电脑都可以作为这个“中央服务器”。
+### 如何将本地已有代码交给git托管
+有一种项目是先有代码后来才想用git进行代码管理，以nodejs-hexo这个项目为例
+1.在远程服务器建立相应的repository
+2.在本地你的代码根目录H:/github/blog/nodejs-hexo运行
+命令：
+```{bash}
+$ git init
+```
+Initialized empty Git repository in H:/github/blog/nodejs-hexo/.git/
+3.hexo项目有一些动态生成的文件是不需要交给git托管的，我们在代码根目录编辑文件**.gitignore** 添加如下不需要托管的内容
+```{bash}
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+```
+4.将文件添加到本地库
+```{bash}
+$ git add *
+$ git add .gitignore
+```
+5.提交到本地库
+```{bash}
+git commit -m "第一次签入"
+```
+6.本地库和远程库关联
+```{bash}
+git remote add origin git@github.com:zjkevin/nodejs-hexo.git
+```
+7.由于我们远程库中创建了一个README.md,所有要同步本地库跟远程库
+```{bash}
+git pull origin master
+```
+8.将本地的所有已经commit到本地库的文件push到远程库中
+```{bash}
+git push -u origin master
+```
 
-### git诞生的原因
-linus一气之下，干脆自己开发一个，linux社区的牛人试图破解BitKeeper协议，被BitMover(商业版本控制系统公司)公司发现，要收回linux社区的免费使用权。于是linus花了两周时间自己做了一个git,一个月内Linux系统的代码由git管理，足够牛就少BB,干脆。当然BitMover公司现在也变得无关紧要。
+### 注
+push -u参数 Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就不用再使用-u参数。也不必指定origin master
 
-未完待续
