@@ -2,7 +2,8 @@
 title: django_创建项目
 tags:
   - django
-  - 默认
+  - web框架
+  - python
 categories: django
 kind: django
 date: 2016-07-04 15:31:50

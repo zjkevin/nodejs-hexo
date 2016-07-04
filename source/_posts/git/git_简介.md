@@ -5,7 +5,7 @@ permalink: git1
 tags:
 - git
 - 开发工具
-categories: 日志
+categories: 开发工具
 ---
 
 

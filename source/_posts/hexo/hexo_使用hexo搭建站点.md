@@ -6,7 +6,7 @@ permalink: test
 tags:
 - hexo
 - 站点本身
-categories: 日志
+categories: hexo
 ---
 
 这是**新的开始**，我用hexo搭建blog并且写了第一篇文章

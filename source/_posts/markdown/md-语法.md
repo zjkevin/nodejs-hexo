@@ -2,7 +2,7 @@
 title: md_语法
 tags:
   - markdown
-  - 默认
+  - 标记语言
 categories: markdown
 kind: markdown
 date: 2016-07-04 09:21:25

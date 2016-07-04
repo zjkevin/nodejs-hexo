@@ -5,7 +5,7 @@ permalink: nodejs_install
 tags:
 - nodejs
 - 技术平台
-categories: 日志
+categories: 技术平台
 ---
 
 ### 简介
