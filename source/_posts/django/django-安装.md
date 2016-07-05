@@ -28,13 +28,3 @@ python3
 import django
 django.get_version()
 ```
-
-创建一个项目:
-```{bash}
-$ django-admin.py startproject cmdb_web
-```
-
-启动web服务
-```{bash}
-$ python3 manage.py runserver
-```
