@@ -10,6 +10,25 @@ categories: 开发工具
 
 ### git 常用命令
 
+#### git库查看远程服务器信息
+```{bash}
+$ cat .git/config
+}
+```
+
+#### git库查看本地分支
+```{bash}
+$ git branch
+```
+
+#### git库查看远程分支
+```{bash}
+$ git branch -r
+```
+
+***
+
+
 做个翻译人员
 ```{bash}
 usage: git [--version] [--help] [-C <path>] [-c name=value]
