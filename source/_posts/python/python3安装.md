@@ -13,7 +13,7 @@ date: 2016-07-05 10:11:54
 如果是windows版本，在安装界面选中pip安装，path环境变量也可以在安装界面上勾选，如果忘记请自行添加。
 
 ### centos6.8下安装
-python官网下载tar.xz包
+#### tar.xz包安装方式
 ```{bash}
    xz -d Python-3.4.4.tar.xz 先用xz解压(压缩比非常高的一个工具，缺点是慢)
    tar xvf Python-3.4.4.tar 
@@ -24,6 +24,27 @@ python官网下载tar.xz包
    ./configure 
    make
    make install
+```
+
+#### tgz包安装方式
+```{bash}
+    yum -y install wget
+    yum -y install gcc
+    yum -y install make
+    wget http://www.python.org/ftp/python/3.4.4/Python-3.4.4.tgz
+    tar -xzvf Python-3.4.4.tgz 
+    cd Python-3.4.4
+    mkdir /usr/local/python3
+    ./configure --prefix=/usr/local/python3 --enable-shared
+    make all
+    make install
+    rm -r Python-3.4.4 --force
+    rm Python-3.4.4.tgz --force
+    
+    #make clean
+    #make distclean 
+    cd /usr/lib64 && ln -s /usr/local/python3/lib/libpython3.4m.so.1.0  libpython3.4m.so.1.0
+    cd /usr/bin/ && ln -s /usr/local/python3/bin/python3 python3
 ```
 
 ### 根据你自己的需要设置环境变量
