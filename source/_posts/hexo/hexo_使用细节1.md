@@ -1,5 +1,5 @@
 ---
-title: hexo的使用细节1
+title: hexo的使用细节
 date: 2016-06-30 16:35:31
 tags:
  - hexo
@@ -31,3 +31,8 @@ INFO  Created: H:\github\blog\nodejs-hexo\source\_posts\markdown\md-语法.md
 ```
 
 使用第二种方法，这里不再赘述，每个人都有自己喜爱的编辑器
+
+### 正文中不能使用的字符
+```{bash}
+正文中不能出现{% %}，要用这一类模板符号请包含在```{bash}   ```段中，有没有模板符号的转义符有待进一步了解
+```
