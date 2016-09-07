@@ -106,3 +106,9 @@ collaborate (see also: git help workflows)
    push       Update remote refs along with associated objects
               推送
 ```
+
+### gitbash设置
+```{bash}
+git status出现乱码
+git config --global core.quotepath false
+```
