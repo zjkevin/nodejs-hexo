@@ -69,5 +69,14 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: git@github.com:zjkevin/zjkevin.github.io.git
+- type: git
+  repo:
+      github: git@github.com:zjkevin/zjkevin.github.io.git
+      coding: git@git.coding.net:zjkevin/blog.git,coding-pages
+
+- type: rsync
+  host: 106.185.49.121
+  user: root
+  root: /var/www/zhangjiesoftcom/
+  port: 22
+
