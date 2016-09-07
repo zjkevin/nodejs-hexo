@@ -62,8 +62,18 @@ $ npm install hexo-deployer-git --save
 编辑 _config.yml_
 ```{bash}
 deploy:
-  type: git
-  repo: git@github.com:xxxxx/yyyyyyyyyy.git
+- type: git
+  repo:
+      github: git@github.com:zjkevin/zjkevin.github.io.git
+      coding: git@git.coding.net:zjkevin/blog.git,coding-pages
+
+- type: rsync
+  host: 106.185.49.121
+  user: root
+  root: /var/www/zhangjiesoftcom/
+  port: 22
+
+
 ```
 
 发布
