@@ -23,6 +23,7 @@ $ git clone git@github.com:zjkevin/nodejs-hexo.git
 ### 注
 以上所有操作的前提都是你具体远程库的权限，并且在本地库目录下申明了你自己的账户信息
 ```{bash}
+$ ssh -T git@github.com 测试ssh key
 $ git config --global user.email "<youreamil>"
 $ git config --global user.name "<username>"
 ```
