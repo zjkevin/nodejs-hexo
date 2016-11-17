@@ -34,10 +34,13 @@ public/
 ```{bash}
 $ git add *
 $ git add .gitignore
+
 ```
 5.提交到本地库
 ```{bash}
-git commit -m "第一次签入"
+$ git commit -m "第一次签入"
+$ git commit -am "将当前目录下已经被追踪的文件(tracked)添加到本地库并且提交本地库"
+
 ```
 6.本地库和远程库关联
 ```{bash}
