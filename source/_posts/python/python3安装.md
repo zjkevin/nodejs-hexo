@@ -1,5 +1,6 @@
 ---
 title: python3安装
+type: "tags"
 tags:
   - python
   - 开发语言
@@ -59,3 +60,22 @@ ln -s "python3目录" /usr/bin/python
 python3 -m pip install xxxx
 python2 -m pip install xxxx
 ```
+
+### CentOS上升级Python2.6到Python2.7
+```{bash}
+    # 安装python2.7.6
+    tar -xzvf Python-2.7.6.tgz 
+    cd Python-2.7.6
+    ./configure --prefix=/usr/local/python2.7
+    make
+    make install
+    cd /usr/bin
+    ln -fs /usr/local/python2.7/bin/python2.7 python
+    # 据说yum只能由CPython2.6解析,打开yum的程序文件，将首行解析器指定声明修改为2.6
+    which yum
+    vim /usr/bin/yum
+    #!/usr/bin/python  --> #!/usr/bin/python2.6
+```
+
+### pip安装
+    https://pip.pypa.io/en/stable/installing/

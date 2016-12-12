@@ -40,6 +40,10 @@ $ hexo init <project_name>
 cd到项目根目录,通过下面的命令，就可以创建新文章
 ```{bash}
 $ hexo new <title>
+$ hexo new <title> --kind "<类别名称>" # 对hexo代码做了一些修改，支持--kind参数 指定类别，source/_posts/下会新建类别文件夹，存在则pass
+
+$ hexo new draft new <title> --kind "<类别名称>" # 创建草稿
+$ 
 ```
 
 启动hexo服务器

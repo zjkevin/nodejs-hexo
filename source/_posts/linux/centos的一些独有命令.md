@@ -11,6 +11,5 @@ date: 2016-07-18 09:54:13
 
 ### 查看系统版本
 众所周知centos和redhat的关系
-```{bash}
+
     cat /etc/redhat-release
-```
