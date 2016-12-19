@@ -71,12 +71,13 @@ theme: next
 deploy:
 - type: git
   repo:
-      github: git@github.com:zjkevin/zjkevin.github.io.git
-      coding: git@git.coding.net:zjkevin/blog.git,coding-pages
+      #github: git@github.com:zjkevin/zjkevin.github.io.git
+      #coding: git@git.coding.net:zjkevin/blog.git,coding-pages
+      homegit: ssh://git@s1.natapp.cc:3689/var/www/hexo_web.git
 
-- type: rsync
-  host: 106.185.49.121
-  user: root
-  root: /var/www/zhangjiesoftcom/
-  port: 22
-
+#- type: rsync
+#  host: 106.185.49.121
+#  user: root
+#  root: /var/www/zhangjiesoftcom/
+#  port: 22
+#
