@@ -90,3 +90,6 @@ $ hexo deploy
 [使用hexo搭建静态站点](http://blog.fens.me/hexo-blog-github/)
 
 注意：配置git的deploy，参考链接的方式已经失效，请以本文为准
+
+
+scp -P <port> -r .deploy_git/* pi@xxx.xxx.xxx:/var/www/hexo
