@@ -1,5 +1,6 @@
 ---
 title: django整合bootstrap
+permalink: django3
 tags:
   - django
   - bootstrap

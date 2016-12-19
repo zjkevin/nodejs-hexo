@@ -1,5 +1,6 @@
 ---
 title: bootstrap细节
+permalink: bootstrap1
 tags:
   - bootstrap
   - 默认

@@ -1,5 +1,6 @@
 ---
 title: grub2_基本操作
+permalink: grub2
 tags:
   - linux
   - 操作系统

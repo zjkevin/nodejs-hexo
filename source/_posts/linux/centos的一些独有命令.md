@@ -1,5 +1,6 @@
 ---
 title: centos的一些独有命令
+permalink: centos1
 tags:
   - linux
   - centos

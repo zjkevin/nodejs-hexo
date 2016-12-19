@@ -6,6 +6,7 @@ tags:
 categories: markdown
 kind: markdown
 date: 2016-07-04 09:21:25
+permalink: markdown1
 ---
 
 ### 6级标题

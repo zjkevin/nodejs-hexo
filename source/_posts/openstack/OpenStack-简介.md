@@ -6,6 +6,7 @@ tags:
 categories: OpenStack
 kind: OpenStack
 date: 2016-11-17 16:21:19
+permalink: openstack1
 ---
 
 ### 简介

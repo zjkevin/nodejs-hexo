@@ -1,5 +1,6 @@
 ---
 title: django_安装
+permalink: django5
 tags:
   - django
   - web框架

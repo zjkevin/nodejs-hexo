@@ -2,7 +2,7 @@
 title: 如果使用hexo搭建个人blog
 date: 2016-06-30 11:10:24
 updated: 2016-06-30 11:19:00
-permalink: test
+permalink: hexoblog
 tags:
 - hexo
 - 站点本身

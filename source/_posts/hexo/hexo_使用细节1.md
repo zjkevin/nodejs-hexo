@@ -5,6 +5,7 @@ tags:
  - hexo
  - 站点本身
 categories: hexo
+permalink: hexo1
 ---
 
 ### hexo的原始日志文件 归档

@@ -1,5 +1,6 @@
 ---
 title: django_创建项目
+permalink: django4
 tags:
   - django
   - web框架

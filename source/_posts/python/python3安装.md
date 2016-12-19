@@ -7,6 +7,7 @@ tags:
 categories: python
 kind: python
 date: 2016-07-05 10:11:54
+permalink: python1
 ---
 
 ### windows下安装

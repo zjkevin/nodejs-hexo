@@ -6,6 +6,7 @@ tags:
 categories: 开发工具
 kind: git
 date: 2016-11-14 15:09:30
+permalink: git_tag
 ---
 
 

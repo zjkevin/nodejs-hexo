@@ -7,6 +7,7 @@ tags:
 categories: wcgi
 kind: wcgi
 date: 2016-07-18 17:13:21
+permalink: paste
 ---
 
 ### 官网

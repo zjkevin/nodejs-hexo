@@ -1,5 +1,6 @@
 ---
 title: django使用细节总结
+permalink: django1
 tags:
   - django
   - bootstrap

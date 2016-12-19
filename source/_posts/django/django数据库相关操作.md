@@ -1,5 +1,6 @@
 ---
 title: django数据库相关操作
+permalink: django2
 tags:
   - django
   - bootstrap
