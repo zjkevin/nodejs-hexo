@@ -6,6 +6,7 @@ tags:
 categories: mysql
 kind: mysql
 date: 2016-08-13 09:43:39
+permalink: mysql_install
 ---
 
 #### mysql在windows下的安装，[mysql官网下载](http://dev.mysql.com)
@@ -16,3 +17,175 @@ date: 2016-08-13 09:43:39
 2.默认配置文件my-default.ini，可以创建自己的配置文件my.ini
 3.启动命令：net start mysql
 4.将MySQL的bin路径加到path中
+
+#### 通过tar.gz的方式安装
+将tar.gz包解压后放在/usr/local下
+```{bash}
+mv mysql-5.7.17-linux-glibc2.5-x86_64 mysql
+```
+
+##### 创建mysql运行帐号
+```{bash}
+groupadd mysql
+useradd mysql -g mysql -p mysql311400 -s /sbin/nologin -M
+```
+
+##### 创建配置文件
+```{bash}
+#
+# The MySQL database server configuration file.
+#
+# You can copy this to one of:
+# - "/etc/mysql/my.cnf" to set global options,
+# - "~/.my.cnf" to set user-specific options.
+# 
+# One can use all long options that the program supports.
+# Run program with --help to get a list of available options and with
+# --print-defaults to see which it would actually understand and use.
+#
+# For explanations see
+# http://dev.mysql.com/doc/mysql/en/server-system-variables.html
+
+# This will be passed to all mysql clients
+# It has been reported that passwords should be enclosed with ticks/quotes
+# escpecially if they contain "#" chars...
+# Remember to edit /etc/mysql/debian.cnf when changing the socket location.
+[client]
+port    = 3306
+socket    = /var/run/mysqld/mysqld.sock
+
+# Here is entries for some specific programs
+# The following values assume you have at least 32M ram
+
+# This was formally known as [safe_mysqld]. Both versions are currently parsed.
+[mysqld_safe]
+socket    = /var/run/mysqld/mysqld.sock
+nice    = 0
+
+[mysqld]
+#
+# * Basic Settings
+#
+user    = mysql
+pid-file  = /var/run/mysqld/mysqld.pid
+socket    = /var/run/mysqld/mysqld.sock
+port    = 3306
+basedir   = /usr
+datadir   = /home/kevin/mysqldata
+tmpdir    = /tmp
+lc-messages-dir = /usr/local/mysql/share/english
+skip-external-locking
+#
+# Instead of skip-networking the default is now to listen only on
+# localhost which is more compatible and is not less secure.
+bind-address    = 0.0.0.0
+#bind-address            = 127.0.0.1
+#
+# * Fine Tuning
+#
+# This replaces the startup script and checks MyISAM tables if needed
+# the first time they are touched
+#max_connections        = 100
+#table_cache            = 64
+#thread_concurrency     = 10
+#
+# * Query Cache Configuration
+#
+#
+# * Logging and Replication
+#
+# Both location gets rotated by the cronjob.
+# Be aware that this log type is a performance killer.
+# As of 5.1 you can enable the log at runtime!
+#general_log_file        = /var/log/mysql/mysql.log
+#general_log             = 1
+#
+# Error logging goes to syslog due to /etc/mysql/conf.d/mysqld_safe_syslog.cnf.
+#
+# Here you can see queries with especially long duration
+#log_slow_queries = /var/log/mysql/mysql-slow.log
+#long_query_time = 2
+#log-queries-not-using-indexes
+#
+# The following can be used as easy to replay backup logs or for replication.
+# note: if you are setting up a replication slave, see README.Debian about
+#       other settings you may need to change.
+#server-id    = 1
+#log_bin      = /var/log/mysql/mysql-bin.log
+#binlog_do_db   = include_database_name
+#binlog_ignore_db = include_database_name
+#
+# * InnoDB
+#
+# InnoDB is enabled by default with a 10MB datafile in /var/lib/mysql/.
+# Read the manual for more InnoDB related options. There are many!
+#
+# * Security Features
+#
+# Read the manual, too, if you want chroot!
+# chroot = /var/lib/mysql/
+#
+# For generating SSL certificates I recommend the OpenSSL GUI "tinyca".
+#
+# ssl-ca=/etc/mysql/cacert.pem
+# ssl-cert=/etc/mysql/server-cert.pem
+# ssl-key=/etc/mysql/server-key.pem
+
+[mysqldump]
+quick
+quote-names
+max_allowed_packet  = 16M
+
+[mysql]
+#no-auto-rehash # faster start of mysql but no tab completition
+
+[isamchk]
+key_buffer    = 16M
+
+#
+# * IMPORTANT: Additional settings that can override those from this file!
+#   The files must end with '.cnf', otherwise they'll be ignored.
+#
+!includedir /etc/mysql/conf.d/
+```
+
+##### 设置权限
+```{bash}
+mkdir /etc/mysql/conf.d
+chgrp -R mysql /etc/mysql
+chown -R mysql /etc/mysql
+chown -R mysql /home/kevin/mysqldata/
+chgrp -R mysql /home/kevin/mysqldata/
+chgrp -R mysql /var/run/mysqld
+chown -R mysql /var/run/mysqld
+```
+
+##### 初始化
+```{bash}
+./mysqld --initialize
+cd /usr/local/mysql/bin/
+./mysqld --initialize
+./mysqld --user=mysql
+```
+
+##### 系统自启动
+```{bash}
+cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
+chkconfig --add mysqld
+
+systemd配置
+vim /lib/systemd/system/mysqld.service
+
+[Unit]
+Description=MySQL Server
+After=network.target
+
+[Service]
+ExecStart=/usr/local/mysql/bin/mysqld --datadir=/home/kevin/mysqldata --socket=/var/run/mysqld/mysqld.sock 
+User=mysql
+Group=mysql
+WorkingDirectory=/usr
+
+[Install]
+WantedBy=multi-user.target 
+```
