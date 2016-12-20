@@ -23,6 +23,7 @@ permalink: python1
    yum install gcc 
    yum install openssl.x86_64
    yum install openssl-devel.x86_64
+   debian下安装 apt-get install libssl-dev
    ./configure 
    make
    make install
