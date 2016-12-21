@@ -30,11 +30,23 @@ vim redis.conf
 
 ### 启动
 ```{bash}
-nohup ./redis-server &
+nohup src/redis-server /usr/local/redis-3.2.5/redis.conf &
 ```
 
 ### 客户端
 RedisDesktopManager
+
+### 设置密码
+```{bash}
+vim redis.conf 
+requirepass XXXXXXXX
+```
+
+### 测试
+# 本地测试
+redis-cli -h 127.0.0.1 -a 1234567890 ping
+# 其他IP
+redis-cli -h 192.168.1.111 -a 1234567890 ping
 
 ### 待研究
 redis主从

@@ -81,3 +81,11 @@ python2 -m pip install xxxx
 
 ### pip安装
     https://pip.pypa.io/en/stable/installing/
+
+### debain8下dist-packages不在sys.path中
+```{bash}
+vim /etc/profile.d/python3.sh
+#!/bin/bash
+export PYTHON_DIST_HOME=/usr/local/lib/python3.4/dist-packages
+export PYTHONPATH=$PYTHON_DIST_HOME:$PYTHONPATH
+```
