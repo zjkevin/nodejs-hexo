@@ -189,3 +189,11 @@ WorkingDirectory=/usr
 [Install]
 WantedBy=multi-user.target 
 ```
+
+#### yum安装 centos6.8
+
+```{bash}
+yum install mysql-server
+/etc/init.d/mysqld start
+mysqladmin -u root password 'hy123'
+```

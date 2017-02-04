@@ -1,9 +1,17 @@
 ---
 title: supervirsor安装和使用
-kind: 进程监控管理
 tags:
+  - 进程监控管理
+  - 默认
+categories: 进程监控管理
+kind: supervisor
+date: 2016-12-23 15:07:32
+permalink: supervisor_install
 ---
 
+进程管理工具 supervisor
+
+<!--more-->
 
 #### 安装
 
@@ -31,7 +39,7 @@ python2 -m pip install supervisor
     加入一行 export PATH=/usr/local/python2.7/bin:$PATH 
 ```
 
-### 创建配置文件
+#### 创建配置文件
 ```{bash}
 $ echo_supervisord_conf > /etc/supervisord.conf
 $ mkdir -p /etc/supervisor/conf.d/
@@ -41,9 +49,10 @@ $ vim /etc/supervisord.conf
 files = /etc/supervisor/conf.d/*.conf
 ```
 
-### 开机自启动
+#### 开机自启动
 
-#### systemd配置
+##### systemd配置
+
 ```{bash}
 vim /lib/systemd/system/supervisord.service
 # 内容如下
@@ -68,7 +77,8 @@ $ systemctl enable supervisord
 $ systemctl is-enabled supervisord
 ```
 
-### supervisord web界面
+#### supervisord web界面
+
 ```{bash}
 [inet_http_server]         ; inet (TCP) server disabled by default
 port=*:9001        ; (ip_address:port specifier, *:port for all iface)
@@ -76,4 +86,24 @@ port=*:9001        ; (ip_address:port specifier, *:port for all iface)
 [supervisorctl]
 serverurl=unix:///tmp/supervisor.sock ; use a unix:// URL  for a unix socket
 serverurl=http://127.0.0.1:9001 ; use an http:// url to specify an inet socket
+```
+
+#### 配置文件中包含环境变量
+托管程序的配置文件中添加
+示例
+```{bash}
+[program:nodevisor]
+command = /usr/local/node/bin/npm start
+user = root
+environment = PATH="/usr/local/node/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",NODE_HOME="/usr/local/node"
+directory = /var/www/nodervisor-master
+process_name = %(program_name)s_%(process_num)s
+numprocs = 1
+autostart = true
+autorestart = true
+stdout_logfile = /var/log/supervisor/nodervisor_stdout.log
+stdout_logfile_maxbytes = 10MB
+stderr_logfile = /var/log/supervisor/nodervisor_error.log
+stderr_logfile_maxbytes = 10MB
+startretries = 30
 ```

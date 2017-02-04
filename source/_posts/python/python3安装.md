@@ -17,6 +17,7 @@ permalink: python1
 ### centos6.8下安装
 #### tar.xz包安装方式
 ```{bash}
+   如果没有xz工具 安装 apt-get install xz-utils
    xz -d Python-3.4.4.tar.xz 先用xz解压(压缩比非常高的一个工具，缺点是慢)
    tar xvf Python-3.4.4.tar 
    #依赖包
@@ -86,6 +87,8 @@ python2 -m pip install xxxx
 ```{bash}
 vim /etc/profile.d/python3.sh
 #!/bin/bash
+export PYTHON_HOME=/usr/local/python3
+export PATH=$PYTHON_HOME/bin:$PATH
 export PYTHON_DIST_HOME=/usr/local/lib/python3.4/dist-packages
 export PYTHONPATH=$PYTHON_DIST_HOME:$PYTHONPATH
 ```

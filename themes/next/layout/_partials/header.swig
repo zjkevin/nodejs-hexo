@@ -43,6 +43,69 @@
         </li>
       {% endfor %}
 
+       <li class="menu-item menu-item-null">
+          <a href="/categories/python/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-language"></i> <br />
+            计算机语言
+          </a>
+        </li>
+
+       <li class="menu-item menu-item-null">
+          <a href="/categories/python/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-language"></i> <br />
+            lunix
+          </a>
+        </li>  
+
+       <li class="menu-item menu-item-null">
+          <a href="/categories/python/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-language"></i> <br />
+            分布式
+          </a>
+        </li>          
+
+       <li class="menu-item menu-item-null">
+          <a href="/categories/python/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-language"></i> <br />
+            大数据
+          </a>
+        </li>          
+
+       <li class="menu-item menu-item-null">
+          <a href="/categories/python/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-language"></i> <br />
+            云计算
+          </a>
+        </li>
+
+       <li class="menu-item menu-item-null">
+          <a href="/categories/python/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-language"></i> <br />
+            数据库
+          </a>
+        </li>
+
+       <li class="menu-item menu-item-null">
+          <a href="/categories/python/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-language"></i> <br />
+            web服务器
+          </a>
+        </li>
+
+       <li class="menu-item menu-item-null">
+          <a href="/categories/python/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-language"></i> <br />
+            技术管理
+          </a>
+        </li>
+
+       <li class="menu-item menu-item-null">
+          <a href="/categories/python/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-language"></i> <br />
+            devops
+          </a>
+        </li>
+
       {% if hasSearch %}
         <li class="menu-item menu-item-search">
           {% if theme.swiftype_key %}
